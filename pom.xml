@@ -32,7 +32,7 @@
     <!-- Source directory configuration -->
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
-    <outputDirectory>/var/jar-output</outputDirectory>
+    <outputDirectory>/home/jenkins/jar-output</outputDirectory>
 
     <plugins>
       <plugin>
