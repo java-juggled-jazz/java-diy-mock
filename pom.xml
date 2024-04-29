@@ -32,6 +32,7 @@
     <!-- Source directory configuration -->
     <sourceDirectory>src/main/java</sourceDirectory>
     <testSourceDirectory>src/test/java</testSourceDirectory>
+    <outputDirectory>target/my-jar-directory</outputDirectory>
 
     <plugins>
       <plugin>
