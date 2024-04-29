@@ -5,7 +5,18 @@ pipeline {
         stage('build') {
             steps {
                 sh 'mvn -B package'
-                sh 'java -jar target/output.jar'
+            }
+        }
+
+        stage('test') {
+            steps {
+                sh 'java -jar output.jar ${ARG_1} ${ARG_2}'
+            }
+        }
+        
+        stage('put-jar-to-bucket') {
+            steps {
+                sh 's3cmd put output.jar s3://${BUCKET_NAME}/application.jar'
             }
         }
     }
