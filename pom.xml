@@ -30,7 +30,8 @@
   <build>
     <defaultGoal>install</defaultGoal>
     <!-- Source directory configuration -->
-    <sourceDirectory>src</sourceDirectory>
+    <sourceDirectory>src/main/java</sourceDirectory>
+    <testSourceDirectory>src/test/java</testSourceDirectory>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
 	<plugin>
