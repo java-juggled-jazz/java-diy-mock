@@ -28,6 +28,7 @@
   </dependencies>
 
   <build>
+    <finalName>output</finalName>
     <defaultGoal>install</defaultGoal>
     <!-- Source directory configuration -->
     <sourceDirectory>src/main/java</sourceDirectory>
@@ -41,7 +42,6 @@
 	  ...
 	  -->
 	  <configuration>
-	    <finalName>output</finalName>
 	    <archive>
 	      <manifest>
 	        <addClasspath>true</addClasspath>
