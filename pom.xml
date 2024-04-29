@@ -41,6 +41,7 @@
 	  ...
 	  -->
 	  <configuration>
+	    <finalName>myJar</finalName>
 	    <archive>
 	      <manifest>
 	        <addClasspath>true</addClasspath>
