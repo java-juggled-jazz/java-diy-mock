@@ -41,7 +41,7 @@
 	  ...
 	  -->
 	  <configuration>
-	    <finalName>myJar</finalName>
+	    <finalName>output</finalName>
 	    <archive>
 	      <manifest>
 	        <addClasspath>true</addClasspath>
