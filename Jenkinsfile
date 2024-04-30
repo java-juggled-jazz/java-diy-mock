@@ -40,5 +40,13 @@ pipeline {
                 sh "s3cmd --config .s3cfg put target/output.jar s3://${env.BUCKET_NAME}/application.jar"
             }
         }
+
+        stage('deploy') {
+            steps {
+                docker {
+                    image 'jetty'
+                }
+            }
+        }
     }
 }
