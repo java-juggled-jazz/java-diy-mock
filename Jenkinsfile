@@ -15,7 +15,7 @@ pipeline {
     stages {
         stage('cred-setup') {
             steps {
-                writeFile(file: '/.s3cfg', text: '[default]\naccess_key = $BUCKET_ACCESS_KEY\nsecret_key = $BUCKET_SECRET_KEY\nbucket_location = ${env.BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${env.BUCKET_NAME}.storage.yandexcloud.net')
+                writeFile(file: '.s3cfg', text: '[default]\naccess_key = $BUCKET_ACCESS_KEY\nsecret_key = $BUCKET_SECRET_KEY\nbucket_location = ${env.BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${env.BUCKET_NAME}.storage.yandexcloud.net')
                 sh "echo BUCKET_LOCATION: ${env.BUCKET_LOCATION}"
                 sh "echo BUCKET_NAME: ${env.BUCKET_NAME}"
             }
@@ -35,7 +35,7 @@ pipeline {
         
         stage('put-jar-to-bucket') {
             steps {
-                sh "s3cmd --config ./s3cfg put target/output.jar s3://${env.BUCKET_NAME}/application.jar"
+                sh "s3cmd --config .s3cfg put target/output.jar s3://${env.BUCKET_NAME}/application.jar"
             }
         }
     }
