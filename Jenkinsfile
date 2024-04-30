@@ -7,8 +7,7 @@ pipeline {
     
     agent {
         docker {
-            image 'builder'
-            label 'latest'
+            image 'crprrh63rcbll3spfoih/builder:latest'
             registryUrl 'https://cr.yandex/'
         }
     }
