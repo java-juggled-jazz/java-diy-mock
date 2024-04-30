@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('cred-setup') {
             steps {
-                sh 'ENTRYPOINT echo -e "[default]\naccess_key = ${BUCKET_ACCESS_KEY}\nsecret_key = ${BUCKET_SECRET_KEY}\nbucket_location = ${BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${BUCKET_NAME}.storage.yandexcloud.net" > ~/.s3cfg
+                sh 'ENTRYPOINT echo -e "[default]\naccess_key = ${BUCKET_ACCESS_KEY}\nsecret_key = ${BUCKET_SECRET_KEY}\nbucket_location = ${BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${BUCKET_NAME}.storage.yandexcloud.net" > ~/.s3cfg'
             }
         }
         
