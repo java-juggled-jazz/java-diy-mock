@@ -16,7 +16,7 @@ pipeline {
     stages {
         stage('cred-setup') {
             steps {
-                writeFile(file: '.s3cfg', text: $S3_CONFIG)
+                writeFile(file: '.s3cfg', text: "${S3_CONFIG}")
                 sh "cat .s3cfg"
                 sh "echo BUCKET_LOCATION: ${env.BUCKET_LOCATION}"
                 sh "echo BUCKET_NAME: ${env.BUCKET_NAME}"
