@@ -1,6 +1,14 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
-    agent { docker { image 'maven:3.9.6-eclipse-temurin-17-alpine' } }
+    agent {
+        docker {
+            image 'builder'
+            label 'latest'
+            registryUrl 'https://cr.yandex/'
+            args '-e ACCESS_KEY=${ACCESS_KEY} SECRET_KEY=${SECRET_KEY} BUCKET_LOCATION=${BUCKET_LOCATION} BUCKET_NAME=${BUCKET_NAME} '
+        }
+    }
+    
     stages {
         stage('build') {
             steps {
