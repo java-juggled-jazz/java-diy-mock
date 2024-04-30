@@ -3,7 +3,7 @@ pipeline {
     environment {
         BUCKET_ACCESS_KEY = credentials('BUCKET_ACCESS_KEY')
         BUCKET_SECRET_KEY = credentials('BUCKET_SECRET_KEY')
-        S3_CONFIG = '[default]\naccess_key = $BUCKET_ACCESS_KEY\nsecret_key = $BUCKET_SECRET_KEY\nbucket_location = ${env.BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${env.BUCKET_NAME}.storage.yandexcloud.net'
+        S3_CONFIG = "[default]\naccess_key = $BUCKET_ACCESS_KEY\nsecret_key = $BUCKET_SECRET_KEY\nbucket_location = ${env.BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${env.BUCKET_NAME}.storage.yandexcloud.net"
     }
     
     agent {
