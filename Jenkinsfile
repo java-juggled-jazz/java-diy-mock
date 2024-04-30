@@ -1,15 +1,25 @@
 /* Requires the Docker Pipeline plugin */
 pipeline {
+    environment {
+        BUCKET_ACCESS_KEY = credentials('BUCKET_ACCESS_KEY')
+        BUCKET_SECRET_KEY = credentials('BUCKET_SECRET_KEY')
+    }
+    
     agent {
         docker {
             image 'builder'
             label 'latest'
             registryUrl 'https://cr.yandex/'
-            args '-e ACCESS_KEY=${ACCESS_KEY} SECRET_KEY=${SECRET_KEY} BUCKET_LOCATION=${BUCKET_LOCATION} BUCKET_NAME=${BUCKET_NAME} '
         }
     }
     
     stages {
+        stage('cred-setup') {
+            steps {
+                sh 'ENTRYPOINT echo -e "[default]\naccess_key = ${BUCKET_ACCESS_KEY}\nsecret_key = ${BUCKET_SECRET_KEY}\nbucket_location = ${BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${BUCKET_NAME}.storage.yandexcloud.net" > ~/.s3cfg
+            }
+        }
+        
         stage('build') {
             steps {
                 sh 'mvn -B package'
