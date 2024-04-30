@@ -15,7 +15,8 @@ pipeline {
     stages {
         stage('cred-setup') {
             steps {
-                sh 'echo -e "[default]\naccess_key = $BUCKET_ACCESS_KEY\nsecret_key = $BUCKET_SECRET_KEY\nbucket_location = ${env.BUCKET_LOCATION}\nhost_base = storage.yandexcloud.net\nhost_bucket = ${env.BUCKET_NAME}.storage.yandexcloud.net" > .s3cfg'
+                def S3_CONFIG = "[default]\naccess_key = " + BUCKET_ACCESS_KEY" + \nsecret_key = " + BUCKET_SECRET_KEY + "\nbucket_location = " + env.BUCKET_LOCATION + "\nhost_base = storage.yandexcloud.net\nhost_bucket = " + env.BUCKET_NAME + ".storage.yandexcloud.net > .s3cfg"
+                writeFile(file: '.s3cfg', text: S3_CONFIG)
                 sh "cat .s3cfg"
                 sh "echo BUCKET_LOCATION: ${env.BUCKET_LOCATION}"
                 sh "echo BUCKET_NAME: ${env.BUCKET_NAME}"
