@@ -29,13 +29,13 @@ pipeline {
 
         stage('test') {
             steps {
-                sh "java -jar output.jar ${env.APP_TEST_ARG_1} ${env.APP_TEST_ARG_2}"
+                sh "java -jar target/output.jar ${env.APP_TEST_ARG_1} ${env.APP_TEST_ARG_2}"
             }
         }
         
         stage('put-jar-to-bucket') {
             steps {
-                sh "s3cmd put output.jar s3://${env.BUCKET_NAME}/application.jar"
+                sh "s3cmd put target/output.jar s3://${env.BUCKET_NAME}/application.jar"
             }
         }
     }
